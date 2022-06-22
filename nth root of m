@@ -1,0 +1,24 @@
+	// if nth root is not integer return -1/////////////
+  long long multiply(long long n,long long num,int m){
+	    long long ans=1;
+	    for(long long i=0;i<n;i++){
+	        ans=ans*num;
+	        if(ans>m)return ans;
+	    }
+	    return ans;
+	}
+	int NthRoot(int n, int m)
+	{
+	    // Code here.
+	    long long low=1,high=m;
+	    
+	    while(low<=high){
+	          long long mid=(low+high)/2;
+	          //cout<<mid<<" -> "<<multiply(n,mid,m)<<endl;
+	          if(multiply(n,mid,m)==m)return mid;
+	          if(multiply(n,mid,m)<m)low=mid+1;
+	          else high=mid-1;
+	    }
+	   
+	    return -1;
+	}  
