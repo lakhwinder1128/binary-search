@@ -1,0 +1,18 @@
+	int findKRotation(int arr[], int n) {
+	    // code here
+	    int low=0;
+	    int high=n-1;
+	    // finding the index of min element in array
+	    while(low<=high){
+	        if(arr[low]<arr[high])return low;
+	        int mid=(low+high)/2;
+	        int prev=(mid-1+n)%n;
+	        int next=(mid+1)%n;
+	        if(arr[mid]<=arr[prev]&&arr[mid]<=arr[next]){
+	            return mid;
+	        }
+	        else if(arr[mid]<arr[high])high=mid-1;
+	        else low=mid+1;
+	    }
+	    return -1;
+	}
